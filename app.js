@@ -11,7 +11,6 @@ app.use(bodyParser.json());
 // Database connection
 connection();
 
-
 // Routes
 const listingRoutes = require('./routes/listings');
 const bookingRoutes = require('./routes/bookings');

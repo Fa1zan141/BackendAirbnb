@@ -1,34 +1,29 @@
-// const mongoose = require('mongoose');
-
-// const bookingSchema = new mongoose.Schema({
-//   booking_id: Number,
-//   listing_name: String,
-//   arrival_date: Date,
-//   departure_date: Date,
-//   client: {
-//     name: String,
-//     email: String,
-//     daytime_phone: String,
-//     mobile: String,
-//     postal_address: String,
-//     home_address: String
-//   },
-//   deposit_paid: Number,
-//   balance_due: Number,
-//   balance_due_date: Date,
-//   number_of_guests: Number,
-//   guests: [
-//     {
-//       name: String,
-//       age: Number
-//     }
-//   ]
-// });
 
 const mongoose = require('mongoose');
 
-// Define the schema for bookings
-const bookingSchema = new mongoose.Schema({}, { collection: 'bookings' });
+const bookingSchema = new mongoose.Schema({
+  booking_id: { type: Number, required: true },
+  listing_name: { type: String, required: true },
+  arrival_date: { type: Date, required: true },
+  departure_date: { type: Date, required: true },
+  client: {
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    daytime_phone: { type: String },
+    mobile: { type: String },
+    postal_address: { type: String },
+    home_address: { type: String }
+  },
+  deposit_paid: { type: Number, required: true },
+  balance_due: { type: Number, required: true },
+  balance_due_date: { type: Date, required: true },
+  number_of_guests: { type: Number, required: true },
+  guests: [
+    {
+      name: { type: String, required: true },
+      age: { type: Number, required: true }
+    }
+  ]
+}, { collection: 'bookings' });
 
 module.exports = mongoose.model('Booking', bookingSchema);
-
