@@ -69,4 +69,26 @@ router.get('/:listingId', async (req, res) => {
 });
 
 
+/*
+router.get('/:id', async (req, res) => {
+  try {
+      const { id } = req.params; 
+      
+      // Validate ObjectId format
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+          return res.status(400).json({ message: 'Invalid ObjectId format' });
+      }
+
+      const listing = await Listing.findById(id); 
+      if (!listing) {
+          return res.status(404).json({ message: 'Listing not found' });
+      }
+      res.json(listing);
+  } catch (error) {
+      console.error('Error fetching listing:', error);
+      res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+*/
+
 module.exports = router;
